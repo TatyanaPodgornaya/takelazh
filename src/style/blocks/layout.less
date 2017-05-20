@@ -25,10 +25,26 @@
     }
 }
 
+.col-wpad {
+    width: 100%;
+
+    @media (min-width: @screen-sm-min) {
+        .make-lg-column(12);
+    }
+}
+
+.col-wpad-half {
+    width: 100%;
+
+    @media (min-width: @screen-sm-min) {
+        .make-lg-column(6);
+    }
+}
+
 .col {
     .make-xs-column(12);
 
-    @media (min-width: @screen-lg-min) {
+    @media (min-width: @screen-sm-min) {
         .make-lg-column(12);
     }
 }

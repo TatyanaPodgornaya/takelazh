@@ -1,5 +1,9 @@
 .nav {
-    background-color: @brend-color;
+
+    .nav-body {
+        background-color: @brend-color;
+    }
+
     .nav-list {
         margin: 0;
         padding: 0;
@@ -8,6 +12,11 @@
 
     .nav-item {
         display: block;
+        border-bottom: 1px solid @brend-color-darker;
+
+        &.nav-item--last {
+            border-bottom: none;
+        }
     }
 
     .nav-link {
@@ -28,7 +37,9 @@
 
 @media (min-width: @screen-sm-min) {
     .nav {
-
+        .nav-item {
+            border-bottom: none;
+        }
         .nav-item {
             display: inline-block;
         }
