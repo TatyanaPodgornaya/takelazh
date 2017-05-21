@@ -1,18 +1,26 @@
 .footer {
-    background-color: #000;
-    padding: 25px 15px;
-    color: @brend-color;
+    background: url(../img/bg-footer.jpg) center right no-repeat #000;
+    padding: 35px 15px;
+    color: @brand-color;
 
     .footer-pad {
         padding-top: 10px;
     }
 
+    .footer-adress {
+        color: @brand-color-darker;
+    }
+
+    .footer-center {
+        text-align: center;
+    }
+
     .footer-div {
-        border-right: 1px solid @brend-color;
+        border-right: 1px solid @brand-color;
     }
 
     .footer-link {
-        color: @brend-color;
+        color: @brand-color;
 
         &:hover,
         &:focus {
@@ -29,6 +37,10 @@
     .footer {
         .footer-pad {
             padding-top: 0;
+        }
+
+        .footer-center {
+            text-align: left;
         }
     }
 }

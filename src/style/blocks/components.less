@@ -1,10 +1,30 @@
 .block {
-    padding: 10px 0;
+    //padding-bottom: 10px;
+
+    .block-left {
+        float: left;
+        padding: 5px 10px 0 0;
+        width: 90px;
+    }
+
+    .block-right {
+        float: right;
+        padding: 5px 0 0 10px;
+        width: 130px;
+    }
+
+    .block-main {
+
+    }
     
     .block-header {
         h2 {
-            color: @brend-color;
+            color: @brand-color;
         }
+    }
+
+    .block-section {
+        margin-bottom: 10px;
     }
 
     .block-body {
@@ -14,4 +34,59 @@
     &.block--last {
         margin-bottom: 25px;
     }
+}
+
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (min-width: @screen-sm-min) {
+    .block {
+        .block-left {
+            float: left;
+            padding: 5px 0;
+            
+        } 
+
+        .block-right {
+            float: right;
+            width: 300px;
+        }
+
+        .block-main {
+            padding-left: 100px;
+
+            &.block-main--fix {
+                padding-left: 0;
+            }
+        }
+    }
+}
+
+.brand-link {
+    color: @brand-color;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+        color: @brand-color;
+        text-decoration: underline;
+    }
+
+    &:focus {
+        color: @brand-color;
+        text-decoration: none;
+    }
+}
+
+.up {
+    display: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    padding: 10px 15px;
+    background-color: rgba(255, 255, 255, .8);
+    border-radius: 5px 0 0 5px;
 }

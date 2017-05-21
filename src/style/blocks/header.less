@@ -1,8 +1,8 @@
 .header {
-    background-color: #000;
+    background: url(../img/bg-header.jpg) top center no-repeat #000;
     padding: 35px 15px;
     .header-link {
-        color: @brend-color;
+        color: @brand-color;
 
         &:hover,
         &:focus {
@@ -10,13 +10,44 @@
         }
     }
 
+    h2 {
+        color: @brand-color;
+        font-size: 20px;
+    }
+
+    .header-left {
+        text-align: center;
+    }
+
+    .header-right {
+        text-align: center;
+    }
+
     .header-phone {
         font-size: 2em;
+    }
+
+    .header-email {
+        font-size: 1.2em;
     }
 }
 
 @media (min-width: @screen-sm-min) {
     .header {
         padding: 50px 15px;
+        margin: 0 15px;
+
+        .header-left {
+            text-align: left;
+        }
+
+        .header-right {
+            text-align: right;
+        }
+
+        h2 {
+            margin: 0;
+        }
+
     }
 }
