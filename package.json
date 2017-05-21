@@ -1,11 +1,12 @@
 {
   "name": "takelazh",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "static site",
   "main": "gulpfile.js",
   "scripts": {
-    "start": "gulp",
+    "start": "set NODE_ENV=development&&gulp",
     "make:fs": "gulp make:fs",
+    "build": "set NODE_ENV=production&&gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,11 +26,16 @@
   "homepage": "https://github.com/unscript/takelazh#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.3.1",
     "gulp-file-include": "^1.1.0",
     "gulp-less": "^3.3.0",
     "gulp-pug": "^3.3.0",
     "gulp-sourcemaps": "*",
+    "gulp-uglify": "^3.0.0",
     "node-static": "^0.7.9",
     "zpath": "^0.5.2"
+  },
+  "dependencies": {
+    "gulp-if-else": "^1.0.3"
   }
 }

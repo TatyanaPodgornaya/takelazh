@@ -5,7 +5,10 @@ const gulp  = require("gulp"),
       pug   = require("gulp-pug"),
       sourcemaps = require("gulp-sourcemaps"),
       less = require("gulp-less"),
-      include = require("gulp-file-include");
+      include = require("gulp-file-include"),
+      uglify = require("gulp-uglify"),
+      ifElse = require("gulp-if-else"),
+      cleanCSS = require('gulp-clean-css');
       zpath = require("zpath");
 
 const fileServer = new (require("node-static")).Server("./build", {cache: 0, headers: {"Cache-Control": "no-cache, must-revalidate"}});
@@ -40,9 +43,10 @@ gulp.task("build:view", () => {
 
 gulp.task("build:style", () => {
     let combined = gulp.src(srcStyleFolder)
-        .pipe(sourcemaps.init())
+        .pipe(ifElse(process.env.NODE_ENV === 'development', sourcemaps.init))
         .pipe(less())
-        .pipe(sourcemaps.write())
+        .pipe(ifElse(process.env.NODE_ENV === 'production', function () { return cleanCSS({compatibility: 'ie9'});} ))
+        .pipe(ifElse(process.env.NODE_ENV === 'development', sourcemaps.write))
         .pipe(gulp.dest(buildStyleFolder));
     
     combined.on("error", console.error.bind(console));
@@ -53,6 +57,7 @@ gulp.task("build:style", () => {
 gulp.task("build:js", () => {
     gulp.src(srcJsFolder)
         .pipe(include("//"))
+        .pipe(ifElse(process.env.NODE_ENV === "production", uglify))
         .pipe(gulp.dest(buildJsFolder));
 });
 
